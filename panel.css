@@ -1,0 +1,224 @@
+/* Base styles for the panel */
+#layout-highlighter-panel {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  min-height: 200px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  z-index: 2147483647; /* Max z-index */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #333333;
+  display: block;
+  resize: vertical;
+  overflow: auto;
+}
+
+#layout-highlighter-panel.lh-panel--collapsed {
+    resize: none;
+    min-height: 0;
+}
+
+.lh-panel--collapsed .lh-panel-body {
+    display: none;
+}
+
+/* Panel Header */
+.lh-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #cccccc;
+  border-radius: 8px 8px 0 0;
+  cursor: move;
+}
+
+.lh-panel-header-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lh-panel-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.lh-panel-header .lh-version {
+  font-size: 14px;
+  font-weight: 400;
+  color: #6c757d;
+}
+
+#lh-minimize-button,
+#lh-close-button {
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  line-height: 1;
+  padding: 0 4px;
+  cursor: pointer;
+  color: #888888;
+}
+
+#lh-minimize-button:hover,
+#lh-close-button:hover {
+  color: #333333;
+}
+
+/* Panel Body */
+.lh-panel-body {
+  padding: 12px;
+}
+
+.lh-panel-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+#lh-add-layer-button {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border: 1px solid transparent;
+  background-color: #007bff;
+  border-color: #007bff;
+  margin-bottom: 15px;
+}
+
+#lh-add-layer-button:hover {
+  background-color: #0056b3;
+}
+
+.lh-layers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 5px;
+  margin-bottom: 8px;
+}
+
+#lh-clear-layers-button {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 12px;
+    color: #007bff;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+#lh-clear-layers-button:hover {
+    text-decoration: underline;
+}
+
+/* Layers List */
+.lh-layers-header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+#lh-layers-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+/* Individual Layer Item */
+.lh-layer-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #fff;
+}
+
+.lh-layer-item:last-child {
+  border-bottom: none;
+}
+
+.lh-layer-item:hover {
+  background-color: #f9f9f9;
+}
+
+.lh-layer-toggle {
+  flex-shrink: 0;
+}
+
+.lh-layer-color-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.lh-layer-selector {
+  flex-grow: 1;
+  font-family: "SF Mono", "Fira Code", "Menlo", monospace;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lh-layer-color-picker {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+.lh-layer-color-picker::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+.lh-layer-color-picker::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+.lh-layer-color-picker::-moz-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
+.lh-delete-layer {
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  color: #999;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0 4px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.lh-delete-layer:hover {
+  color: #e53935; /* a reddish color */
+  background-color: #fce8e6;
+} 

@@ -6,7 +6,6 @@
   let layers = [];
   let colorCounter = 0;
 
-  // --- State Management ---
 
   function saveState() {
     const state = { layers, colorCounter };
@@ -25,8 +24,6 @@
       });
     });
   }
-
-  // --- Color & Layer Logic ---
 
   /**
    * Converts an HSL color value to HEX.
@@ -54,7 +51,7 @@
     } else if (300 <= h && h < 360) {
       r = c; g = 0; b = x;
     }
-    
+
     r = Math.round((r + m) * 255).toString(16);
     g = Math.round((g + m) * 255).toString(16);
     b = Math.round((b + m) * 255).toString(16);
@@ -103,7 +100,7 @@
     updateStyles();
     saveState();
   }
-  
+
   // --- DOM & UI ---
 
   function updateStyles() {
@@ -138,11 +135,11 @@
       layersList.appendChild(listItem);
     });
   }
-  
+
   function attachLayerEventListeners() {
       const layersList = document.getElementById('lh-layers-list');
       if (!layersList) return;
-      
+
       layersList.addEventListener('click', (e) => {
           const target = e.target;
           const listItem = target.closest('.lh-layer-item');
@@ -203,7 +200,7 @@
     document.body.appendChild(panel);
 
     const header = panel.querySelector('.lh-panel-header');
-    
+
     header.addEventListener('mousedown', (e) => {
         if (e.button !== 0) return; // Only drag with left mouse button
 
@@ -239,13 +236,11 @@
     });
     document.getElementById('lh-add-layer-button').addEventListener('click', addLayer);
     document.getElementById('lh-clear-layers-button').addEventListener('click', clearAllLayers);
-    
+
     renderLayers();
     updateStyles();
     attachLayerEventListeners();
   }
-
-  // --- Initialization ---
 
   async function init() {
       const existingPanel = document.getElementById(PANEL_ID);
@@ -260,4 +255,4 @@
 
   init();
 
-})(); 
+})();
